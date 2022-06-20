@@ -7,7 +7,7 @@
     <div *ngIf="!shoppingCartService.items?.length">
       <p class="text-center">Seu carrinho está vazio!</p>
     </div>
-    <div class="table-responsive" *ngIf="shoppingCartService.items?.length">
+    <div class="table-responsive overflow-hidden" *ngIf="shoppingCartService.items?.length">
       <table class="table">
         <tbody>
           <tr *ngFor="let item of shoppingCartService.items" [@row]="rowState">
