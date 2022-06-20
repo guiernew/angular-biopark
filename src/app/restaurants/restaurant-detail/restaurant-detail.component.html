@@ -1,0 +1,72 @@
+<section class="content-header">
+  <h1></h1>
+</section>
+
+<section class="content">
+  <div class="row align-items-center">
+    <div class="col-12">
+      <div class="card card-solid">
+        <div class="card-header with-border">
+          <div class="row align-items-center no-gutters">
+            <div class="col">
+              <h3 class="mb-0">
+                <i class="mdi mdi-home mdi-24px"></i>
+                {{ restaurant?.name }}
+              </h3>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex align-items-center">
+                <i class="mdi mdi-star mdi-24px"></i>&nbsp;{{
+                  restaurant?.rating
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body row">
+          <div class="col-md-3" *ngIf="restaurant">
+            <img class="box-img-detail" [src]="restaurant?.imagePath" />
+          </div>
+
+          <dl class="col-md-9">
+            <dt>Categoria</dt>
+            <dd>{{ restaurant?.category }}</dd>
+            <dt>Quem somos</dt>
+            <dd>{{ restaurant?.about }}</dd>
+            <dt>Horários</dt>
+            <dd>{{ restaurant?.hours }}</dd>
+          </dl>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer detail-footer">
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLinkActive="active"
+                [routerLink]="['menu']"
+              >
+                Menu
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLinkActive="active"
+                [routerLink]="['reviews']"
+              >
+                Avaliações
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

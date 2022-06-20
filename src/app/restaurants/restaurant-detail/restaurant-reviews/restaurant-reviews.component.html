@@ -1,0 +1,49 @@
+<div class="row" style="gap: 16px 0px;" >
+  <div class="col-12 col-md-6" *ngFor="let review of reviews | async">
+    <div class="card card-solid">
+      <div class="card-header with-border">
+        <div class="row user-block">
+          <div class="col-auto">
+            <img
+              *ngIf="review.rating < 3"
+              alt="User Image"
+              class="user-image"
+              src="assets/img/reactions/pissed.png"
+            />
+            <img
+              *ngIf="review.rating >= 3 && review.rating < 4"
+              alt="User Image"
+              class="user-image"
+              src="assets/img/reactions/soso.png"
+            />
+            <img
+              *ngIf="review.rating >= 4"
+              alt="User Image"
+              class="user-image"
+              src="assets/img/reactions/loved.png"
+            />
+          </div>
+          <div class="col pl-0">
+            <div class="username">
+              <strong>
+                {{ review.name }}
+              </strong>
+            </div>
+            <span class="description">{{
+              review.date | date: "dd/MM/yyyy"
+            }}</span>
+          </div>
+          <div class="col-auto">
+            <span class="review-score"
+              ><i class="mdi mdi-star"></i> {{ review.rating }}</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <p>{{ review.comments }}</p>
+      </div>
+    </div>
+  </div>
+</div>
